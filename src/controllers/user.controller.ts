@@ -1,25 +1,24 @@
 import {
-  Controller,
-  Get,
-  Post,
-  Delete,
-  Route,
-  Path,
   Body,
-  Tags,
+  Controller,
+  Delete,
+  Get,
   Patch,
-  Security,
+  Path,
+  Post,
+  Route,
+  Tags,
 } from "tsoa";
-import { userService } from "../services/user.service";
 import {
   UserInputDTO,
   UserInputPatchDTO,
   UserOutputDTO,
 } from "../dto/user.dto";
+import { userService } from "../services/user.service";
 
 @Route("users")
 @Tags("Users")
-@Security("jwt")
+//@Security("jwt")
 export class UserController extends Controller {
   // Récupère tous les utilisateurs
   @Get("/")
@@ -36,7 +35,7 @@ export class UserController extends Controller {
   // Crée un nouvel utilisateur
   @Post("/")
   public async createUser(
-    @Body() requestBody: UserInputDTO,
+    @Body() requestBody: UserInputDTO
   ): Promise<UserOutputDTO> {
     const { username, password } = requestBody;
     return userService.createUser(username, password);
@@ -52,7 +51,7 @@ export class UserController extends Controller {
   @Patch("{id}")
   public async updateUser(
     @Path() id: number,
-    @Body() requestBody: UserInputPatchDTO,
+    @Body() requestBody: UserInputPatchDTO
   ): Promise<UserOutputDTO> {
     const { username, password } = requestBody;
     return userService.updateUser(id, username, password);
