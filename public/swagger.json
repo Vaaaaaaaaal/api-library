@@ -316,7 +316,13 @@
 				"tags": [
 					"Users"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": [
+							"user:read"
+						]
+					}
+				],
 				"parameters": []
 			},
 			"post": {
@@ -368,7 +374,13 @@
 				"tags": [
 					"Users"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": [
+							"user:read"
+						]
+					}
+				],
 				"parameters": [
 					{
 						"in": "path",
@@ -391,7 +403,13 @@
 				"tags": [
 					"Users"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": [
+							"user:delete"
+						]
+					}
+				],
 				"parameters": [
 					{
 						"in": "path",
@@ -421,7 +439,13 @@
 				"tags": [
 					"Users"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": [
+							"user:write"
+						]
+					}
+				],
 				"parameters": [
 					{
 						"in": "path",

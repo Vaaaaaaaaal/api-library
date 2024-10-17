@@ -46,6 +46,7 @@ export class AuthenticationService {
       author: [],
       book: [],
       bookCollection: [],
+      user: [],
     };
 
     switch (username) {
@@ -53,21 +54,23 @@ export class AuthenticationService {
         permissions.author = ["read", "write", "delete"];
         permissions.book = ["read", "write", "delete"];
         permissions.bookCollection = ["read", "write", "delete"];
+        permissions.user = ["read", "write", "delete"];
         break;
       case "gerant":
         permissions.author = ["read", "write"];
         permissions.book = ["read", "write"];
         permissions.bookCollection = ["read", "write", "delete"];
+        permissions.user = ["read"];
         break;
       case "utilisateur":
         permissions.author = ["read"];
         permissions.book = ["read", "write"];
         permissions.bookCollection = ["read"];
+        permissions.user = ["read"];
         break;
       default:
-        permissions.author = ["read"];
-        permissions.book = ["read"];
-        permissions.bookCollection = ["read"];
+        // Permissions par défaut (aucune)
+        break;
     }
 
     return permissions;
